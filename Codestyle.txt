@@ -1,0 +1,43 @@
+Coding Style
+------------
+The coding style used in Vala itself seems to be a variation of the GTK+ coding style.
+Tabs rather than spaces.
+Tab width unspecified, but 2 works well.
+Hanging braces.
+Cuddled else.
+Braces not necessary for single-line blocks.
+Variable and method identifiers in lowercase, words seperated by underscores.
+Type identifiers in CamelCase.
+Enum members and constants in ALL_CAPS, words seperated by underscores.
+C-style /* comments. */
+Hungarian notation not used.
+Variables often declared without type (i.e. "var").
+No line-length limit.
+No function-length limit.
+Space between method name and parameters' opening parenthesis.
+Property "get", "set", "default" declaration all on one line, seperated by semicolons, if default implementations are used.
+If properties have implementations, then "get {", "set {" open new lines.
+Attributes on their own line.
+JavaDoc-style commenting on types, methods, variables.
+Header at top of file contains:
+
+/* filename.vala
+*
+* This file is part of DbValadator
+*
+* Copyright (C) 20yy-20yy  Copyright Holder 1 <email@address>
+*	                         Copyright Holder n <email@address>
+*
+* DbValadator is free software: you can redistribute it and/or modify it under the terms of the
+* GNU General Public License as published by the Free Software Foundation, either version 3 of the
+* License, or (at your option) any later version.
+* 
+* DbValadator is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+* without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+* 
+* See the GNU General Public License for more details. You should have received a copy of the GNU
+* General Public License along with DbValadator. If not, see <http://www.gnu.org/licenses/>. 
+* 
+* Author(s):
+* 	Programmer Name <email@address>
+*/
