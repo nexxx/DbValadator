@@ -1,4 +1,4 @@
-/* DbValadator.vala
+/* Mainwindow.vala
 *
 * This file is part of DbValadator
 *
@@ -18,17 +18,23 @@
 * Author(s):
 *		Andreas Freitag <freitandi@gmail.com>
 */
-using Dbv.Gui;
 using Gtk;
-namespace Dbv {
 
-public class DbValadator : GLib.Object {
-  public static int main (string[] args) {
-		Gtk.init(ref args);
-		Mainwindow mainwindow = new Mainwindow(args);
-		mainwindow.show_window();
-		Gtk.main();
-		return 0;
-  }
+namespace Dbv.Gui {
+class Mainwindow : GLib.Object {
+	private Window window;
+
+	public Mainwindow(string[] args) {
+		window = new Window();
+		window.title = "DbValadator";
+		window.border_width = 5;
+		window.window_position = WindowPosition.CENTER;
+		window.set_default_size(800, 600);
+		window.destroy.connect(Gtk.main_quit);
+	}
+
+	public void show_window() {
+		window.show_all();
+	}
 }
 }
