@@ -22,19 +22,32 @@ using Gtk;
 
 namespace Dbv.Gui {
 class Mainwindow : GLib.Object {
-	private Window window;
+	private Window _window;
+	
 
-	public Mainwindow(string[] args) {
-		window = new Window();
-		window.title = "DbValadator";
-		window.border_width = 5;
-		window.window_position = WindowPosition.CENTER;
-		window.set_default_size(800, 600);
-		window.destroy.connect(Gtk.main_quit);
+	public Mainwindow() {
+		//Window
+		_window = new Window();
+		_window.title = "DbValadator";
+		_window.border_width = 5;
+		_window.window_position = WindowPosition.CENTER;
+		_window.set_default_size(800, 600);
+		_window.destroy.connect(Gtk.main_quit);
+
+		//Toolbar
+		var toolbar = new CustomToolbar();
+
+		//Layout
+		var vbox = new Box(Orientation.VERTICAL, 0);
+		vbox.pack_start(toolbar, false, true, 0);
+
+		//Add components to window
+		_window.add(vbox);
 	}
 
 	public void show_window() {
-		window.show_all();
+		_window.show_all();
 	}
+
 }
 }

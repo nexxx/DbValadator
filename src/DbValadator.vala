@@ -25,7 +25,7 @@ namespace Dbv {
 public class DbValadator : GLib.Object {
   public static int main (string[] args) {
 		Gtk.init(ref args);
-		Mainwindow mainwindow = new Mainwindow(args);
+		Mainwindow mainwindow = new Mainwindow();
 		mainwindow.show_window();
 		Gtk.main();
 		return 0;
