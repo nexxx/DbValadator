@@ -37,12 +37,23 @@ class Mainwindow : GLib.Object {
 		//Toolbar
 		var toolbar = new CustomToolbar();
 
+		//Tree
+		var tree = new CustomTree();
+		var scroll_tree = new ScrolledWindow(null, null);		
+		scroll_tree.set_policy(PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
+		scroll_tree.add(tree);
+
 		//Layout
 		var vbox = new Box(Orientation.VERTICAL, 0);
 		vbox.pack_start(toolbar, false, true, 0);
+		var hbox = new Box(Orientation.HORIZONTAL, 0);
+		hbox.pack_start(scroll_tree, true, true, 0);
+		vbox.pack_start(hbox, true, true, 0);
 
 		//Add components to window
 		_window.add(vbox);
+
+		
 	}
 
 	public void show_window() {
