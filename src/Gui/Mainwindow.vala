@@ -42,13 +42,24 @@ class Mainwindow : GLib.Object {
 		var scroll_tree = new ScrolledWindow(null, null);		
 		scroll_tree.set_policy(PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
 		scroll_tree.add(tree);
+		scroll_tree.set_size_request(200, -1);
+
+		//Cairo DrawingArea
+		var draw = new CustomDrawingArea();
+		var scroll_draw = new ScrolledWindow(null, null);
+		scroll_draw.set_policy(PolicyType.AUTOMATIC, PolicyType.AUTOMATIC);
+		scroll_draw.add(draw);
+
+		//Split Pane
+		var pane = new Paned(Orientation.HORIZONTAL);
+		pane.add1(scroll_tree);
+		pane.add2(scroll_draw);
 
 		//Layout
 		var vbox = new Box(Orientation.VERTICAL, 0);
 		vbox.pack_start(toolbar, false, true, 0);
-		var hbox = new Box(Orientation.HORIZONTAL, 0);
-		hbox.pack_start(scroll_tree, true, true, 0);
-		vbox.pack_start(hbox, true, true, 0);
+		vbox.pack_start(pane, true, true, 0);
+
 
 		//Add components to window
 		_window.add(vbox);
