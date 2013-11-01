@@ -29,10 +29,13 @@ class Mainwindow : GLib.Object {
 		//Window
 		_window = new Window();
 		_window.title = "DbValadator";
-		_window.border_width = 5;
+		_window.border_width = 0;
 		_window.window_position = WindowPosition.CENTER;
 		_window.set_default_size(800, 600);
 		_window.destroy.connect(Gtk.main_quit);
+
+		//Menubar
+		var menu = new CustomMenubar();
 
 		//Toolbar
 		var toolbar = new CustomToolbar();
@@ -57,6 +60,7 @@ class Mainwindow : GLib.Object {
 
 		//Layout
 		var vbox = new Box(Orientation.VERTICAL, 0);
+		vbox.pack_start(menu, false, true, 0);
 		vbox.pack_start(toolbar, false, true, 0);
 		vbox.pack_start(pane, true, true, 0);
 
